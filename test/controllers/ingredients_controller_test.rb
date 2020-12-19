@@ -2,7 +2,8 @@ require "test_helper"
 
 class IngredientsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @ingredient = ingredients(:one)
+    @ingredient = ingredients(:eggs)
+    @ingredient2 = Ingredient.new(name: "Milk")
   end
 
   test "should get index" do
@@ -17,7 +18,16 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ingredient" do
     assert_difference('Ingredient.count') do
-      post ingredients_url, params: { ingredient: { name: @ingredient.name } }
+      post ingredients_url, params: { ingredient: { name: @ingredient2.name } }
+    end
+
+    assert_redirected_to ingredients_url
+  end
+
+  test "duplicate names should not be allowed" do
+    post ingredients_url, params: { ingredient: { name: @ingredient2.name } }
+    assert_no_difference('Ingredient.count') do
+      post ingredients_url, params: { ingredient: { name: @ingredient2.name } }
     end
 
     assert_redirected_to ingredients_url
