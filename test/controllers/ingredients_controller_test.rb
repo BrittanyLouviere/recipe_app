@@ -30,7 +30,7 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
       post ingredients_url, params: { ingredient: { name: @ingredient2.name } }
     end
 
-    assert_redirected_to ingredients_url
+    assert_select "#error_explanation"
   end
 
   test "should show ingredient" do
