@@ -20,7 +20,7 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
       post ingredients_url, params: { ingredient: { name: @ingredient.name } }
     end
 
-    assert_redirected_to ingredient_url(Ingredient.last)
+    assert_redirected_to ingredients_url
   end
 
   test "should show ingredient" do
@@ -35,7 +35,7 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update ingredient" do
     patch ingredient_url(@ingredient), params: { ingredient: { name: @ingredient.name } }
-    assert_redirected_to ingredient_url(@ingredient)
+    assert_redirected_to ingredients_url
   end
 
   test "should destroy ingredient" do
