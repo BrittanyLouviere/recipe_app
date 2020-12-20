@@ -33,6 +33,11 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
     assert_select "#error_explanation"
   end
 
+  test "whitespace should be stripped from name" do
+    post ingredients_url, params: { ingredient: { name: " White Flour " } }
+    assert_equal "White Flour", Ingredient.last.name
+  end
+
   test "should show ingredient" do
     get ingredient_url(@ingredient)
     assert_response :success
