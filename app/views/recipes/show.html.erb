@@ -10,5 +10,22 @@
   <%= @recipe.instructions %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Ingredients</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipe.ingredientsJoin.each do |join| %>
+      <tr>
+        <td><%= join.ingredient_name %> (<%= join.amount %>)</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
