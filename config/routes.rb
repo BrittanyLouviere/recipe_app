@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'recipe_ingredient_join/create'
+  get 'recipe_ingredient_join/destroy'
   resources :recipes
   root  'static_pages#home'
   resources :ingredients

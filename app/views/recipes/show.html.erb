@@ -21,7 +21,7 @@
   <tbody>
     <% @recipe.ingredientsJoin.each do |join| %>
       <tr>
-        <td><%= join.ingredient_name %> (<%= join.amount %>)</td>
+        <td><%= join.ingredient_name %><% if !join.amount.blank? %> (<%= join.amount %>)<% end %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,15 @@
+<table>
+  <tbody id="ingredientTableBody">
+    <% if !!@ingredientsJoin %>
+      <% @ingredientsJoin.each do |ingredient| %>
+        <tr name="ingredient_<%= ingredient.ingredient_name %>">
+          <td><input type="button" onclick="removeIngredient(this, '<%= ingredient.ingredient_name %>')" value="remove"></td>
+          <td><%= form.label ingredient.ingredient_name %></td>
+          <td><%= form.text_field ingredient.amount, 
+                  value: ingredient.amount, 
+                  name: "ingredientsJoin[#{ingredient.ingredient_name}]" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

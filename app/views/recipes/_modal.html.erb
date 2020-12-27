@@ -1,0 +1,17 @@
+<div id="ingredientModal" class="modal">
+  <div class="modal-content">
+    <span class="closeModal">&times;</span>
+      
+    <h3>Add or Remove Ingredients</h3>
+    <table>
+      <tbody>
+        <% Ingredient.pluck(:name).each do |ingredient| %>
+          <tr>
+            <td><input name="add_<%= ingredient %>" type="button" onclick="addIngredient(this, '<%= ingredient %>')" value="add"></td>
+            <td><%= form.label ingredient %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

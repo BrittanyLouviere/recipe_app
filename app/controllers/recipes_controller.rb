@@ -14,20 +14,28 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    @recipe = Recipe.new
+    @recipe = Recipe.new()
   end
 
   # GET /recipes/1/edit
   def edit
+    name="ingredients[<%= ingredient %>][0]"
+    test = @recipe.ingredientsJoin
+    ingredients = {}
+    @recipe.ingredientsJoin.each { |join|
+      ingredients[join.ingredient_name] = {"0": "1", "1": join.amount}
+    }
+
+    @ingredientsJoin = @recipe.ingredientsJoin
   end
 
   # POST /recipes
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-
     respond_to do |format|
       if @recipe.save
+        joinIngredients()
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
@@ -42,6 +50,8 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
+        RecipeIngredientJoin.where(recipe_id: @recipe.id).delete_all
+        joinIngredients()
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe }
       else
@@ -70,5 +80,13 @@ class RecipesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def recipe_params
       params.require(:recipe).permit(:name, :instructions)
+    end
+
+    def joinIngredients()
+      params[:ingredientsJoin].each { |name, amount|
+        RecipeIngredientJoin.create(recipe_id: @recipe.id, 
+                    ingredient_id: Ingredient.find_by(name: name).id, 
+                    amount: amount)
+      }
     end
 end
