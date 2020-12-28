@@ -3,12 +3,12 @@
     <span class="closeModal">&times;</span>
       
     <h3>Add or Remove Ingredients</h3>
-    <table>
+    <table class="table table-striped table-hover">
       <tbody>
         <% Ingredient.pluck(:name).each do |ingredient| %>
           <tr>
-            <td><input name="add_<%= ingredient %>" type="button" onclick="addIngredient(this, '<%= ingredient %>')" value="add"></td>
-            <td><%= form.label ingredient %></td>
+            <td><input name="add_<%= ingredient %>" type="button" class="btn btn-success" onclick="addIngredient(this, '<%= ingredient %>')" value="add"></td>
+            <td><%= form.label ingredient, class: "form-label" %></td>
           </tr>
         <% end %>
       </tbody>
