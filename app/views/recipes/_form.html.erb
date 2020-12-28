@@ -66,9 +66,9 @@
     if (document.getElementsByName(`ingredient_${name}`).length == 0) {
       var table = document.getElementById("ingredientTableBody");
       var html = `<tr name='ingredient_${name}'>`
-                  + `<td><input type='button' onclick='removeIngredient(this, "${name}")' value='remove'></td>`
-                  + `<td><label for='recipe_${name}'>${name}</label></td>`
-                  + `<td><input value='' name='ingredientsJoin[${name}]' type='text'></td>`
+                  + `<td><input type='button' class='btn btn-danger' onclick='removeIngredient(this, "${name}")' value='remove'></td>`
+                  + `<td><label class="form-label" for='recipe_${name}'>${name}</label></td>`
+                  + `<td><input class="form-control" value='' name='ingredientsJoin[${name}]' type='text'></td>`
                + "</tr>";
       table.insertAdjacentHTML('beforeend', html);
       el.disabled = true;
