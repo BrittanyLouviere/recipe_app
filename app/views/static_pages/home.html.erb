@@ -1,4 +1,10 @@
 <h1>Welcome to the Recipes App!</h1>
-<%= link_to 'Recipe List', recipes_path, class: "btn-link" %>
-<br>
-<%= link_to 'Ingredient List', ingredients_path, class: "btn-link" %>
+<div class="home-flex">
+  <input type="button" class="btn btn-primary" style="grid-column: 1;" value="Recipes" onclick="document.location='<%= recipes_path %>'">
+  <input type="button" class="btn btn-primary" style="grid-column: 2;" value="Ingredients" onclick="document.location='<%= ingredients_path %>'">
+  <input data-toggle="tooltip" data-placement="bottom" title="Coming Soon" type="button" class="btn btn-primary disabled" style="grid-column: 3;" value="Grocery List" onclick="document.location='#'">
+</div>
+
+<script>
+    $('[data-toggle="tooltip"]').tooltip()
+</script>

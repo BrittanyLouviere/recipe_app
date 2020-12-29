@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RecipeApp</title>
+    <title>Recipe App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -30,11 +30,11 @@
               id="bs-example-navbar-collapse-1">
             <li><%= link_to "Recipes", recipes_path %></li>
             <li><%= link_to "Ingredients", ingredients_path %></li>
-            <li><%= link_to "Grocery List" %></li>
+            <li><%= link_to "Grocery List", "#", class: "disabled", 'data-toggle': "tooltip", 'data-placement': "bottom", title: "Coming Soon" %></li>
           </ul>
         </nav>
       </div>
     </header>
-    <%= yield %>
+    <div class="container"><%= yield %></div>
   </body>
 </html>
