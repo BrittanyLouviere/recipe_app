@@ -6,6 +6,11 @@ body {
   padding-top: 30px;
 }
 
+p, ol, ul, td, a {
+  font-size: 1.7rem !important;
+  line-height: 1.7rem !important;
+}
+
 .disabled {
   cursor: default !important;
 }

@@ -1,10 +1,9 @@
-<h1>Welcome to the Recipes App!</h1>
+<h1>Welcome to the Recipe App Demo!</h1>
+<p>
+  This demo app is in early beta so it does not have all of the planned functionality but please feel free to play around with it.
+</p>
 <div class="home-flex">
-  <input type="button" class="btn btn-primary" style="grid-column: 1;" value="Recipes" onclick="document.location='<%= recipes_path %>'">
-  <input type="button" class="btn btn-primary" style="grid-column: 2;" value="Ingredients" onclick="document.location='<%= ingredients_path %>'">
-  <input data-toggle="tooltip" data-placement="bottom" title="Coming Soon" type="button" class="btn btn-primary disabled" style="grid-column: 3;" value="Grocery List" onclick="document.location='#'">
+  <input type="button" class="btn btn-primary" value="Recipes" onclick="document.location='<%= recipes_path %>'">
+  <input type="button" class="btn btn-primary" value="Ingredients" onclick="document.location='<%= ingredients_path %>'">
+  <input data-toggle="tooltip" data-placement="bottom" title="Coming Soon" type="button" class="btn btn-primary disabled" value="Grocery List" onclick="document.location='#'">
 </div>
-
-<script>
-    $('[data-toggle="tooltip"]').tooltip()
-</script>
