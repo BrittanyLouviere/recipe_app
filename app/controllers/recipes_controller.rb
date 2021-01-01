@@ -83,7 +83,7 @@ class RecipesController < ApplicationController
     end
 
     def joinIngredients()
-      params[:ingredientsJoin].each { |name, amount|
+      (params[:ingredientsJoin] || []).each { |name, amount|
         RecipeIngredientJoin.create(recipe_id: @recipe.id, 
                     ingredient_id: Ingredient.find_by(name: name).id, 
                     amount: amount)
