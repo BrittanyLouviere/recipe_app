@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  config_option: MyString
+  config_option: "Option 1"
   string_value: MyString
   date_time_value: 2021-01-09 08:56:07
 
 two:
-  config_option: MyString
+  config_option: "Option 2"
   string_value: MyString
   date_time_value: 2021-01-09 08:56:07
