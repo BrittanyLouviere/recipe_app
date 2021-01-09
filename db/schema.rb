@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_20_192034) do
+ActiveRecord::Schema.define(version: 2021_01_09_145607) do
+
+  create_table "configs", force: :cascade do |t|
+    t.string "config_option"
+    t.string "string_value"
+    t.datetime "date_time_value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["config_option"], name: "index_configs_on_config_option", unique: true
+  end
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"

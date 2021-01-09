@@ -15,6 +15,10 @@ p, ol, ul, td, a {
   cursor: default !important;
 }
 
+p.danger {
+  color: red;
+}
+
 // Header
 #logo {
   float: left;

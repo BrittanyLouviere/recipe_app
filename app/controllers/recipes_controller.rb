@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
+    check_db_last_reset
     @recipes = Recipe.all
   end
 

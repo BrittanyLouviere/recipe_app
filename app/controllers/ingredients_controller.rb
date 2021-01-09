@@ -4,6 +4,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.json
   def index
+    check_db_last_reset
     @ingredients = Ingredient.all
   end
 
